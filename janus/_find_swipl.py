@@ -25,8 +25,10 @@ def swipl_exe_properties(exe="swipl"):
     return props
 
 def find_swipl():
-    home = os.path.abspath('bundled_swipl')
+    home = os.path.abspath('./bundled_swipl/')
+    print('Bundled home directory:', home)
     if (not os.path.exists(home)):
+        print(home, 'does not exist.')
         if ( sys.platform == "win32" ):
             home = _win32_home_from_registry()
         else:

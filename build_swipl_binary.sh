@@ -9,4 +9,4 @@ cmake -DSWIPL_PACKAGE_LIST="clib;plunit;sgml;semweb;chr;clpqr;nlp;yaml;swipy" -D
 make
 ctest -j $(nproc) --output-on-failure
 cd ../../
-cp -r swipl-devel/build janus/bundled_swipl
+cp --verbose -r swipl-devel/build janus/bundled_swipl
