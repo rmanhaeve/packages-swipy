@@ -2,6 +2,7 @@ import os
 import sys
 import subprocess
 import re
+import pathlib
 
 def swipl_properties(exe="swipl"):
     try:
@@ -24,10 +25,14 @@ def swipl_exe_properties(exe="swipl"):
     return props
 
 def find_swipl():
-    if ( sys.platform == "win32" ):
-        home = _win32_home_from_registry()
-        if ( home ):
-            return os.path.join(home, "bin", "swipl.exe")
+    home = os.path.abspath('bundled_swipl')
+    if (not home.exists()):
+        if ( sys.platform == "win32" ):
+            home = _win32_home_from_registry()
+        else:
+            home = None
+    if ( home ):
+        return os.path.join(home, "bin", "swipl.exe")
     return None
 
 def _win32_home_from_registry():
