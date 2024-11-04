@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf swipl-devel
 git clone https://github.com/SWI-Prolog/swipl-devel.git
 cd swipl-devel
 git submodule update --init
