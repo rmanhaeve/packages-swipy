@@ -5,6 +5,6 @@ git submodule update --init
 cd swipl-devel
 mkdir build
 cd build
-cmake -DSWIPL_PACKAGES=OFF -DUSE_GM=OFF ..
+cmake -DSWIPL_PACKAGE_LIST="clib;plunit;sgml;semweb;chr;clpqr;nlp;yaml;swipy" -DUSE_GM=OFF ..
 make
 ctest -j $(nproc) --output-on-failure
