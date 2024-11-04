@@ -8,3 +8,4 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX=../bundled_swipl -DSWIPL_PACKAGE_LIST="clib;plunit;sgml;semweb;chr;clpqr;nlp;yaml;swipy" -DINSTALL_DOCUMENTATION=OFF -DUSE_GM=OFF ..
 make
 ctest -j $(nproc) --output-on-failure
+make install
