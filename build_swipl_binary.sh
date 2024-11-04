@@ -8,5 +8,3 @@ cd build
 cmake -DSWIPL_PACKAGE_LIST="clib;plunit;sgml;semweb;chr;clpqr;nlp;yaml;swipy" -DINSTALL_DOCUMENTATION=OFF -DUSE_GM=OFF ..
 make
 ctest -j $(nproc) --output-on-failure
-cd ../../
-cp --verbose -r swipl-devel/build janus/bundled_swipl
