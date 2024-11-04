@@ -34,7 +34,7 @@ setup(name='janus_swi',
       license="BSD-2",
       packages=['janus_swi'],
       package_dir={"janus_swi":"janus"},
-      package_data={"janus_swi": ['janus.pl']},
+      package_data={"janus_swi": ['janus.pl','bundled_swipl/**/*']},
       ext_modules= [
           Extension('janus_swi._swipl',
                     ['janus/janus.c'],
