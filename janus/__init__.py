@@ -1,6 +1,8 @@
 import os
 import sys
 
+
+
 if ( sys.platform == "win32" ):
     from janus_swi._find_swipl import swipl_properties
     props = swipl_properties()
