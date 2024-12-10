@@ -4,13 +4,13 @@ import subprocess
 import re
 import pathlib
 
-def swipl_properties():
+def swipl_properties(exe="swipl"):
     try:
-        return swipl_exe_properties()
+        return swipl_exe_properties(exe)
     except:
         exe = find_swipl()
         if ( exe ):
-            return swipl_exe_properties(find_swipl())
+            return swipl_exe_properties(exe)
         return None
     
 def swipl_exe_properties(exe="swipl"):
