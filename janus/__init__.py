@@ -13,7 +13,6 @@ if ( sys.platform == "win32" ):
         os.add_dll_directory(libdir)
     else:
         raise RuntimeError("Could not find SWI-Prolog in %PATH% or registry")
-
 from janus_swi.janus import *
 import janus_swi._swipl
 
