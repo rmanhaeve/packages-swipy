@@ -1,6 +1,9 @@
 import os
 import sys
 
+
+print('Loading janus')
+
 if ( sys.platform == "win32" ):
     from janus_swi._find_swipl import swipl_properties
     props = swipl_properties()
@@ -15,6 +18,7 @@ if ( sys.platform == "win32" ):
 from janus_swi.janus import *
 import janus_swi._swipl
 
+print('Initializing swipl')
 _swipl.initialize("swipl",
                   "-g", "true",
                   "--no-signals")
@@ -22,5 +26,7 @@ _swipl.initialize("swipl",
 # Get library(janus) for calling Python from Prolog.  If this library is
 # already part of Prolog, use it, else add this directory to the library
 # search path.
+
+print(f'Adding {os.path.dirname(__file__)} to library search path')
 _swipl.call("(exists_source(library(janus))->true;asserta(user:file_search_path(library, Here)))",
             {"Here":os.path.dirname(__file__)})
