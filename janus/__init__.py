@@ -1,7 +1,7 @@
 import os
 import sys
 
-
+os.environ["SWI_HOME_DIR"] = os.path.dirname(__file__)+"/bundled_swipl/lib/swipl"
 
 if ( sys.platform == "win32" ):
     from janus_swi._find_swipl import swipl_properties
