@@ -22,6 +22,7 @@ def swipl_exe_properties(exe="swipl"):
         name = line[0:i]
         value = line[i+2:-2]
         props[name] = value;
+    print('props=',props)
     return props
 
 def find_swipl():
