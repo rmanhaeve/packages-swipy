@@ -19,7 +19,7 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.21.3
         env:
-          CIBW_BEFORE_ALL: bash build_swipl_binary.sh && cp -r swipl-devel/bundled_swipl {package}/janus/bundled_swipl
+          CIBW_BEFORE_ALL: bash build_swipl_binary.sh
           CIBW_SKIP: pp* *i686 *ppc64le *s390x
           CIBW_BUILD_VERBOSITY: 3
           CIBW_TEST_COMMAND: >
