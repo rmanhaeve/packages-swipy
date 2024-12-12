@@ -22,6 +22,8 @@ jobs:
           CIBW_BEFORE_ALL: bash build_swipl_binary.sh
           CIBW_SKIP: pp* *i686 *ppc64le *s390x
           CIBW_BUILD_VERBOSITY: 3
+          CIBW_REPAIR_WHEEL_COMMAND_LINUX: >
+            auditwheel repair --exclude 'libswipl.so*' -w {dest_dir} {wheel}
           CIBW_TEST_COMMAND: >
             python -c "import janus_swi as janus; assert janus.query_once('between(0,0,X)') == {'truth': True, 'X': 0}"
       - uses: actions/upload-artifact@v4
