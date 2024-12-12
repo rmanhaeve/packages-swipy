@@ -21,6 +21,7 @@ jobs:
         env:
           CIBW_BEFORE_ALL: bash build_swipl_binary.sh && cp -r swipl-devel/bundled_swipl {package}/janus/bundled_swipl
           CIBW_SKIP: pp* *i686 *ppc64le *s390x
+          CIBW_BUILD_VERBOSITY: 3
           CIBW_TEST_COMMAND: >
             python -c "import janus_swi as janus; assert janus.query_once('between(0,0,X)') == {'truth': True, 'X': 0}"
       - uses: actions/upload-artifact@v4
