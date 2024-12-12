@@ -19,12 +19,12 @@ if ( int(props["PLVERSION"]) < 90112 ):
 
 link_args=[]
 if ( sys.platform == 'linux' ):
-    link_args.append(f'-Wl,-rpath={props["PLLIBDIR"]},--enable-new-dtags')
+    link_args.append("-Wl,-rpath,$ORIGIN/bundled_swipl/lib/swipl/lib/x86_64-linux,--enable-new-dtags")
 elif ( sys.platform == 'darwin' ):
     link_args.append(f'-Wl,-rpath,{props["PLLIBDIR"]}')
 elif ( sys.platform == 'win32' ):
     PLLIB="libswipl"
-
+print('link_args', link_args)
 setup(name='janus_swi',
       version='1.5.0',
       description="Janus library to call SWI-Prolog",
@@ -52,5 +52,6 @@ setup(name='janus_swi',
                     ],
                     extra_link_args=link_args,
                     library_dirs=[props["PLLIBDIR"]],
+#                    runtime_library_dirs=["janus/bundled_swipl/lib/swipl/lib/x86_64-linux"],
                     libraries=[PLLIB])
           ])
