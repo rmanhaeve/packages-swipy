@@ -8,3 +8,5 @@ cmake -DCMAKE_INSTALL_PREFIX=../../janus/bundled_swipl -DSWIPL_PACKAGE_LIST="cli
 make -j $(nproc) 
 ctest -j $(nproc) --output-on-failure
 make install
+cd ../..
+find janus/bundled_swipl/lib/ -type l -delete
