@@ -8,14 +8,14 @@ PLLIB="swipl"
 from setuptools import setup, Extension
 import sys
 sys.path.append("janus")
-from _find_swipl import swipl_properties
+#from _find_swipl import swipl_properties
 
-props=swipl_properties(SWIPL)
+#props=swipl_properties(SWIPL)
 
-if ( not props ):
-    raise RuntimeError("Failed to find SWI-Prolog components")
-if ( int(props["PLVERSION"]) < 90112 ):
-    raise RuntimeError("At least SWI-Prolog version 9.1.12 is required")
+#if ( not props ):
+#    raise RuntimeError("Failed to find SWI-Prolog components")
+#if ( int(props["PLVERSION"]) < 90112 ):
+#    raise RuntimeError("At least SWI-Prolog version 9.1.12 is required")
 
 link_args=[]
 if ( sys.platform == 'linux' ):
@@ -48,10 +48,10 @@ setup(name='janus_swi',
                         ('PYTHON_PACKAGE', '1')
                     ],
                     include_dirs=[
-                        f'{props["PLBASE"]}/include'
+                        'janus/bundled_swipl/lib/swipl/include'
                     ],
                     extra_link_args=link_args,
-                    library_dirs=[props["PLLIBDIR"]],
+                    library_dirs=['janus/bundled_swipl/lib/swipl/lib/x86_64-linux'],
 #                    runtime_library_dirs=["janus/bundled_swipl/lib/swipl/lib/x86_64-linux"],
                     libraries=[PLLIB])
           ])
