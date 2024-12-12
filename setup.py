@@ -35,6 +35,7 @@ setup(name='janus_swi',
       packages=['janus_swi'],
       package_dir={"janus_swi":"janus"},
       package_data={"janus_swi": ['janus.pl','bundled_swipl/**/*']},
+      exclude_package_data={"janus_swi": ['bundled_swipl/**/*.so.*']},
       include_package_data=True,
       ext_modules= [
           Extension('janus_swi._swipl',
