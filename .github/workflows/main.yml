@@ -20,7 +20,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.21.3
         env:
           CIBW_BEFORE_ALL: bash build_swipl_binary.sh
-          CIBW_SKIP: pp* *i686 *ppc64le *s390x
+          CIBW_SKIP: pp* *i686 *ppc64le *s390x cp36* cp37*
           CIBW_BUILD_VERBOSITY: 3
           CIBW_REPAIR_WHEEL_COMMAND_LINUX: >
             auditwheel repair --exclude libswipl.so -w {dest_dir} {wheel}
